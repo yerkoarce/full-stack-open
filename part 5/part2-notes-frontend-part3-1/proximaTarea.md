@@ -1,0 +1,1 @@
+Arreglar el agregado de una nueva nota

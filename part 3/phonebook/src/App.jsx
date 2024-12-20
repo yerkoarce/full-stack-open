@@ -15,9 +15,10 @@ const App = () => {
     personsService
       .getAll()
       .then(persons => {
+        console.log('Persoons Fetched', persons)
         setPersons(persons)
       })
-      .catch(error => {
+      .catch(error => { 
         console.log('Error fetching persons', error)
       })
   }, [])
@@ -31,6 +32,7 @@ const App = () => {
     }
     // Busca si el nombre en personObject es parte de las personas agregadas
     const findName = persons.find(person => person.name === personObject.name) 
+    console.log('Find name', findName)
     if(findName){
       if ( window.confirm(`${findName.name} is already added to phonebook, replace the old number with a new one?`)){
         const personObjectToUpdate = {...findName, number: personObject.number}
@@ -88,16 +90,25 @@ const App = () => {
 
   const handleDeletePerson = (id) => {
     const personToDelete = persons.find(person => person.id === id)
+
+    if (!personToDelete) {
+      setMessageError('person not found')
+      setTimeout(() => {
+        setMessageError(null)
+      }, 3000)
+      return
+    }
+
     if (window.confirm(`Delete ${personToDelete.name}?`)){
       personsService
-      .deletePerson(id)
-      .then(deletePerson => {
-        setPersons(persons.filter(person => person.id !== id))
-        setMessageError(`${personToDelete.name} is deleted from server`)
-        setTimeout(()=> {
-          setMessageError(null)
-        }, 3000)
-      }
+        .deletePerson(id)
+        .then(deletePerson => {
+          setPersons(persons.filter(person => person.id !== id))
+          setMessageError(`${personToDelete.name} is deleted from server`)
+          setTimeout(()=> {
+            setMessageError(null)
+          }, 3000)
+        }
         
       )
     }

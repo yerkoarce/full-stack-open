@@ -1,0 +1,12 @@
+### Creación de un nuevo usuario 
+POST http://localhost:3001/api/users
+Content-Type: application/json
+
+{
+  "name": "Yerko",
+  "username": "usuarioPuebaLogin7",
+  "password": "123456"
+}
+
+### Obtener todos los usuarios
+GET http://localhost:3001/api/users

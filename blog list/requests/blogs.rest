@@ -1,0 +1,32 @@
+### Crear un blog nuevo 
+POST http://localhost:3001/api/blogs 
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzdWFyaW9QdWViYUxvZ2luNyIsImlkIjoiNjcyMGVlNjE4NjlkYmRmZTExNDk3YzJlIiwiaWF0IjoxNzMwMjMxNjQzLCJleHAiOjE3MzAyMzUyNDN9.Mhu7sL6Uu74h3eIlZV1tRFiIUEsA9TNK1pjOR5qhFw0
+
+{
+  "title": "Publicando un blog logeado en la app 7 con middleware",
+  "author": "Yerko 7",
+  "url": "url-del-blog-logeado 7",
+  "likes": 12399
+}
+
+### Obtener todos los blogs
+
+GET http://localhost:3001/api/blogs
+
+### Obtener un único blog
+
+GET http://localhost:3001/api/blogs/672023da0fac5f168554d32f
+
+### Eliminar un blog por id 
+
+DELETE http://localhost:3001/api/blogs/67202ac55524749aa30da2eb
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzdWFyaW9QdWViYUxvZ2luMiIsImlkIjoiNjcxZmVhZWU3Zjc1OTgwODlhYWQ3ZTNhIiwiaWF0IjoxNzMwMTY2NDEzLCJleHAiOjE3MzAxNzAwMTN9.eQDxatTfmh-5VFKfCa_Zb0JGULHtfVzyvJkSh9MRLfU
+
+### Actualizar un blog
+PATCH http://localhost:3001/api/blogs/6716bc1bd33edc0a54c55ceb
+Content-Type: application/json
+
+{
+  "likes": 123
+}

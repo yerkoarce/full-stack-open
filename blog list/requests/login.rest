@@ -1,0 +1,8 @@
+### Loguear usuario 
+POST http://localhost:3001/api/login
+Content-Type: application/json
+
+{
+  "username": "usuarioPuebaLogin7",
+  "password": "123456" 
+}
